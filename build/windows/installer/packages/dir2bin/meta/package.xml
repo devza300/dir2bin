@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+<Name>dir2bin</Name>
+<DisplayName>dir2bin</DisplayName>
+<Description>A dynamic library and CLI tool for archiving lightweight files and directories</Description>
+<Version>VERSION</Version>
+<ReleaseDate>RELEASE_DATE</ReleaseDate>
+<Script>installscript.qs</Script>
+<Default>true</Default>
+<ForcedInstallation>false</ForcedInstallation>
+<RequiresAdminRights>true</RequiresAdminRights>
+</Package>

@@ -1,10 +1,12 @@
 TEMPLATE = subdirs
+CONFIG += ordered
 
 SUBDIRS += \
-    build \
     lib \
-    tool
+    tool \
+    build
 
 DISTFILES += \
     README.md \
-    LICENSE
+    LICENSE \
+    dir2bin.pri

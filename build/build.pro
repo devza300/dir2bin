@@ -1,5 +1,4 @@
 TEMPLATE = subdirs
 
-SUBDIRS += \
-    debian \
-    windows
+unix: SUBDIRS += debian
+win32: SUBDIRS += windows

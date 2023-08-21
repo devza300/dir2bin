@@ -24,8 +24,9 @@ public:
      * \brief toBin - сохранить содержимое каталога в файл
      * \param dir - базовый каталог
      * \param bin - файл для сохранения
+     * \param compressionLevel - уровень сжатия данных
      */
-    static void toBin(const QString &dir, const QString &bin);
+    static void toBin(const QString &dir, const QString &bin, int compressionLevel = -1);
 
     /*!
      * \brief toDir - записать данные в заданный каталог

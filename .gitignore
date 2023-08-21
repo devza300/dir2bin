@@ -54,3 +54,5 @@ compile_commands.json
 
 *_qmlcache.qrc
 
+# ignore 3rdParty dir
+*/3rdParty/*

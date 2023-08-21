@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Installer>
+<Name>dir2bin installer</Name>
+<Version>1.0</Version>
+<Title>dir2bin Installer</Title>
+<Publisher>DevZA300</Publisher>
+<StartMenuDir>dir2bin</StartMenuDir>
+<TargetDir>@RootDir@Program Files\dir2bin</TargetDir>
+<AllowSpaceInPath>true</AllowSpaceInPath>
+</Installer>

@@ -1,0 +1,10 @@
+Package: dir2bin
+Version: PACKAGE_VERSION
+Section: system
+Priority: optional
+Architecture: PACKAGE_ARCH
+Maintainer: DevZA300
+Homepage: https://github.com/devza300/dir2bin.git
+Description: CLI tool for archiving lightweight files and directories.
+Depends: DEPENDS
+Installed-Size: PACKAGE_SIZE

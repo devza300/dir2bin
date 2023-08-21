@@ -1,0 +1,10 @@
+Package: libdir2bin-dev
+Version: PACKAGE_VERSION
+Section: develop
+Priority: optional
+Architecture: PACKAGE_ARCH
+Maintainer: DevZA300
+Homepage: https://github.com/devza300/dir2bin
+Description: A headers of dynamic library dir2bin.
+Depends: DEPENDS
+Installed-Size: PACKAGE_SIZE

@@ -8,6 +8,11 @@
 using namespace DevZA300;
 
 /*!
+ * \brief CompressionLevel - уровень сжатия данных
+ */
+int CompressionLevel = -1;
+
+/*!
  * \brief exploreDir - чтение объектов каталога
  * \param root - каталог, относительного которого изучается содержимое
  * \param path - полный путь к каталогу
@@ -119,8 +124,10 @@ inline void changeEntry(const QDir &root, const Entry &old_entry, const Entry &n
     writeEntry(root, new_entry);
 }
 
-void dir2bin::toBin(const QString &dir, const QString &bin)
+void dir2bin::toBin(const QString &dir, const QString &bin, int compressionLevel)
 {
+    CompressionLevel = compressionLevel;
+
     QDir root(dir);
     auto entries = exploreDir(root, dir);
     DataList<Entry> dataList(entries);

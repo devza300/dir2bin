@@ -7,6 +7,11 @@ using namespace DevZA300;
 
 #define SIZE sizeof (EntryHeader) + mm_path.size() + mm_data.size()
 
+/*!
+ * \brief CompressionLevel - уровень сжатия данных
+ */
+extern int CompressionLevel;
+
 Entry::Entry(const QByteArray &data)
 {
     if (data == nullptr)
@@ -97,7 +102,7 @@ QByteArray Entry::getData() const
 
 void Entry::setData(const QByteArray &data)
 {
-    mm_data = qCompress(data);
+    mm_data = qCompress(data, CompressionLevel);
 
     // сохранение размера структуры
     mm_header.objectSize = SIZE;
