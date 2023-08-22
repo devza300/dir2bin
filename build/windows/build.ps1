@@ -49,10 +49,10 @@ echo "build.ps1 [3] write manifest file"
 $__META_XML = $($TMP_DIR + "\packages\dir2bin\meta\package.xml")
 (Get-Content $__META_XML).replace('VERSION', $VERSION).replace('RELEASE_DATE', $__COMMIT_DATE) | Set-Content $__META_XML
 
-function componentPrepare([string] $NAME)
+function componentPrepare([string] $DIR, [string] $NAME)
 {
     # copy exe to data
-    Copy-Item -Path $($OUT_PWD + "\..\..\..\" + $NAME + "\release\" + $NAME) -Destination $__DATA
+    Copy-Item -Path $($OUT_PWD + "\..\..\..\" + $DIR + "\release\" + $NAME) -Destination $__DATA
 
     # вызов windeployQt
     $proc_depends = Start-Process -NoNewWindow -PassThru -FilePath $WINDEPLOYQT -ArgumentList --force, $__DATA
@@ -60,17 +60,19 @@ function componentPrepare([string] $NAME)
 }
 
 # сборка файлов windeployQt
-echo "build.ps1 [4] copy exe tp tmp dir"
-componentPrepare "dir2bin.exe"
-echo "build.ps1 [5] copy dll tp tmp dir"
-componentPrepare "libdir2bin.dll"
-echo "build.ps1 [5] copy header tp tmp dir"
-componentPrepare "dir2bin.h"
+echo "build.ps1 [4] copy exe to tmp dir"
+componentPrepare "tool" "dir2bin.exe"
+echo "build.ps1 [5] copy dll to tmp dir"
+componentPrepare "lib" "dir2bin.dll"
+echo "build.ps1 [6] copy lib to tmp dir"
+componentPrepare "lib" "dir2bin.lib"
+echo "build.ps1 [7] copy header to tmp dir"
+componentPrepare "lib" "dir2bin.h"
 
 ############################################################################################################################################################
 
 # создание инсталлятора
-echo "build.ps1 [7] generate installer exe"
+echo "build.ps1 [8] generate installer exe"
 $INSTALLER = $OUT_PWD + "\..\..\..\dir2bin_" + $ARCH + ".exe"
 $ARGS = "-c $TMP_DIR\config\config.xml -p $TMP_DIR\packages $INSTALLER"
 $proc_installer = Start-Process -NoNewWindow -PassThru $BINARYCREATOR $ARGS
