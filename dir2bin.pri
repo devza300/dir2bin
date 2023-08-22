@@ -3,7 +3,7 @@ GIT_VERSION = $$system( git --git-dir $$PWD/.git --work-tree $$PWD describe --al
 
 # версия сборки - задается вручную
 MAJOR = 0
-MINOR = 01
+MINOR = 02
 VERSION = "$$MAJOR"."$$MINOR"
 PROJECT_NAME = dir2bin
 

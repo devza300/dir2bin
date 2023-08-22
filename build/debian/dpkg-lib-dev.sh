@@ -49,7 +49,7 @@ function find_and_replace {
 
     # replace CONTENT & rename FILE
     for ENTRY in $LIST_ENTRY; do
-        if [[ -f $ENTRY ]]; then
+        if [[ -f $ENTRY && ! -L $ENTRY ]]; then
 
             # replace CONTENT
             if [[ "$(file $ENTRY | grep ELF)" == "" ]]; then
@@ -83,7 +83,7 @@ function find_and_replace {
     done
 }
 
-# копируем исполняемый файл
+# копируем заголовочный файл
 DEB_INCLUDE_PATH=/usr/include/x86_64-linux-gnu
 mkdir -p $DEB/$DEB_INCLUDE_PATH
 cp -r $PACKAGE_TREE/../../../lib/dir2bin.h $DEB/$DEB_INCLUDE_PATH

@@ -49,7 +49,7 @@ function find_and_replace {
 
     # replace CONTENT & rename FILE
     for ENTRY in $LIST_ENTRY; do
-        if [[ -f $ENTRY ]]; then
+        if [[ -f $ENTRY && ! -L $ENTRY ]]; then
 
             # replace CONTENT
             if [[ "$(file $ENTRY | grep ELF)" == "" ]]; then
@@ -83,10 +83,9 @@ function find_and_replace {
     done
 }
 
-# копируем исполняемый файл
+# копируем библиотеку
 DEB_LIB_PATH=/usr/lib/x86_64-linux-gnu
 mkdir -p $DEB/$DEB_LIB_PATH
-# TODO check copy symlink only
 cp -Prv $OUT_PWD/../../lib/*.so* $DEB/$DEB_LIB_PATH
 
 # замена переменных

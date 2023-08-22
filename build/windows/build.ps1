@@ -52,7 +52,7 @@ $__META_XML = $($TMP_DIR + "\packages\dir2bin\meta\package.xml")
 function componentPrepare([string] $NAME)
 {
     # copy exe to data
-    Copy-Item -Path $($OUT_PWD + "\..\..\..\" + $NAME + "\release\" + $NAME + ".exe") -Destination $__DATA
+    Copy-Item -Path $($OUT_PWD + "\..\..\..\" + $NAME + "\release\" + $NAME) -Destination $__DATA
 
     # вызов windeployQt
     $proc_depends = Start-Process -NoNewWindow -PassThru -FilePath $WINDEPLOYQT -ArgumentList --force, $__DATA
@@ -60,12 +60,12 @@ function componentPrepare([string] $NAME)
 }
 
 # сборка файлов windeployQt
-echo "build.ps1 [4] copy jengine-client.exe tp tmp dir"
-componentPrepare "jengine-client"
-echo "build.ps1 [5] copy jengine-server.exe tp tmp dir"
-componentPrepare "jengine-server"
-echo "build.ps1 [6] copy jmake.exe tp tmp dir"
-componentPrepare "jmake"
+echo "build.ps1 [4] copy exe tp tmp dir"
+componentPrepare "dir2bin.exe"
+echo "build.ps1 [5] copy dll tp tmp dir"
+componentPrepare "libdir2bin.dll"
+echo "build.ps1 [5] copy header tp tmp dir"
+componentPrepare "dir2bin.h"
 
 ############################################################################################################################################################
 

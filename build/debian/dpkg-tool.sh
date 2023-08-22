@@ -49,7 +49,7 @@ function find_and_replace {
 
     # replace CONTENT & rename FILE
     for ENTRY in $LIST_ENTRY; do
-        if [[ -f $ENTRY ]]; then
+        if [[ -f $ENTRY && ! -L $ENTRY ]]; then
 
             # replace CONTENT
             if [[ "$(file $ENTRY | grep ELF)" == "" ]]; then

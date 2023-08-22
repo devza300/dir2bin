@@ -22,13 +22,17 @@ sudo apt install qt6-base-dev libqt6core6 cmake
 
 ```
 git clone https://github.com/devza300/dir2bin.git
-qmake6 ./dir2bin.pro
+cd dir2bin/
+qmake6 ./dir2bin.pro -o Makefile
 mkdir -p OUT && cd OUT && make -f ../Makefile
+
+# deb package dir
+ls -l ./build/debian/*.deb
 ```
 
-Use `qmake6` from your Qt assets, for example `~/Qt/6.4.2/gcc_64/bin/qmake6`
+You can use `qmake6` from your Qt assets, for example `~/Qt/6.4.2/gcc_64/bin/qmake6`
 
-### Windows build
+## Windows build
 
 1. download complete Qt6 from https://qt.io
 2. import this git repo (New project -> Import -> Clone Git)
